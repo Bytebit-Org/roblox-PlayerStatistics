@@ -38,6 +38,7 @@ export class PlayerStatisticsProvider<
 	>;
 
 	private constructor(
+		private readonly dataModel: DataModel,
 		dumpsterFactory: DumpsterFactory,
 		private readonly eventsDefinition: EventsDef,
 		private readonly playersService: Players,
@@ -56,6 +57,7 @@ export class PlayerStatisticsProvider<
 		});
 		this.dumpster.dump(this.currentStatisticsSnapshotsByPlayer, (map) => map.clear());
 
+		this.listenForGameToClose();
 		this.listenForPlayersToJoinAndLeave();
 	}
 
@@ -66,6 +68,7 @@ export class PlayerStatisticsProvider<
 		statisticsDefinition: StatsDef,
 	) {
 		return new PlayerStatisticsProvider(
+			game,
 			new DumpsterFactory(),
 			eventsDefinition,
 			Players,
@@ -93,7 +96,7 @@ export class PlayerStatisticsProvider<
 		this.isDestroyed = true;
 	}
 
-	public getStatisticValueForPlayer<StatName extends keyof StatsDef>(player: Player, statisticName: StatName) {
+	public getStatisticValueForPlayer(player: Player, statisticName: keyof StatsDef) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
 		}
@@ -106,7 +109,7 @@ export class PlayerStatisticsProvider<
 		return currentStatisticsSnapshot[statisticName];
 	}
 
-	public recordEvent(player: Player, eventName: ExtractKeys<EventsDef, string>, value: number) {
+	public recordEvent(player: Player, eventName: keyof EventsDef, value: number) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
 		}
@@ -154,8 +157,8 @@ export class PlayerStatisticsProvider<
 		}
 	}
 
-	public subscribeToStatisticUpdates<StatName extends keyof StatsDef>(
-		statisticName: StatName,
+	public subscribeToStatisticUpdates(
+		statisticName: keyof StatsDef,
 		handler: (player: Player, newValue: number, oldValue: number) => void,
 	) {
 		let statisticUpdatedSignal = this.statisticUpdatedSignalsByStatisticName.get(statisticName);
@@ -177,24 +180,23 @@ export class PlayerStatisticsProvider<
 		}
 	}
 
-	private listenForPlayersToJoinAndLeave() {
-		this.playersService.PlayerRemoving.Connect((player) => {
-			const currentStatisticsSnapshot = this.currentStatisticsSnapshotsByPlayer.get(player);
-			if (currentStatisticsSnapshot === undefined) {
-				// no-op
+	private listenForGameToClose() {
+		this.dataModel.BindToClose(() => {
+			if (this.isDestroyed) {
 				return;
 			}
 
-			this.currentStatisticsSnapshotsByPlayer.delete(player);
+			this.currentStatisticsSnapshotsByPlayer.forEach((_, player) => {
+				this.saveStatisticsForPlayer(player);
+			});
+		});
+	}
 
-			attemptTaskWithUnlimitedRetries(
-				() =>
-					this.playerStatisticsPersistenceLayer.saveStatisticsSnapshotForPlayerAsync(
-						player,
-						currentStatisticsSnapshot,
-					),
-				`Save player statistics for ${player.Name}`,
-			);
+	private listenForPlayersToJoinAndLeave() {
+		this.playersService.PlayerRemoving.Connect((player) => {
+			this.saveStatisticsForPlayer(player);
+
+			this.currentStatisticsSnapshotsByPlayer.delete(player);
 		});
 
 		this.dumpster.dump(
@@ -220,5 +222,22 @@ export class PlayerStatisticsProvider<
 				: { ...defaultStatisticsSnapshot, ...loadedStatisticsSnapshot };
 
 		this.currentStatisticsSnapshotsByPlayer.set(player, statisticsSnapshot);
+	}
+
+	private saveStatisticsForPlayer(player: Player) {
+		const currentStatisticsSnapshot = this.currentStatisticsSnapshotsByPlayer.get(player);
+		if (currentStatisticsSnapshot === undefined) {
+			// no-op
+			return;
+		}
+
+		attemptTaskWithUnlimitedRetries(
+			() =>
+				this.playerStatisticsPersistenceLayer.saveStatisticsSnapshotForPlayerAsync(
+					player,
+					currentStatisticsSnapshot,
+				),
+			`Save player statistics for ${player.Name}`,
+		);
 	}
 }

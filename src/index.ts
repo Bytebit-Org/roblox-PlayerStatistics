@@ -1,10 +1,10 @@
 export * from "classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer";
 export * from "classes/PlayerStatisticsProvider";
 
-export * from "interfaces/IPlayerStatisticsPersistenceLayer";
+export { IPlayerStatisticsPersistenceLayer } from "interfaces/IPlayerStatisticsPersistenceLayer";
 
-export * from "types/EventsDefinition";
-export * from "types/StatisticsDefinition";
-export * from "types/StatisticsSnapshot";
+export { EventsDefinition } from "types/EventsDefinition";
+export { StatisticsDefinition } from "types/StatisticsDefinition";
+export { StatisticsSnapshot } from "types/StatisticsSnapshot";
 
 export * from "./StandardStatisticUpdateFunctions";
