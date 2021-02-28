@@ -4,7 +4,8 @@
   "description": "",
   "main": "out/init.lua",
   "scripts": {
-    "prepublishOnly": "rbxtsc"
+    "prepublishOnly": "rbxtsc",
+    "test": "rbxtsc && rojo build -o ./testbuild.rbxlx && run-in-roblox ./testbuild.rbxlx -s ./spec.lua"
   },
   "repository": {
     "type": "git",
@@ -35,9 +36,11 @@
   },
   "dependencies": {
     "@rbxts/dumpster": "^1.0.8",
+    "@rbxts/fitumi": "^1.0.5",
     "@rbxts/inspect": "^1.0.1",
     "@rbxts/object-utils": "^1.0.4",
     "@rbxts/services": "^1.1.2",
-    "@rbxts/signals-tooling": "^1.0.4"
+    "@rbxts/signals-tooling": "^1.0.4",
+    "@rbxts/testez": "^0.3.1-ts.6"
   }
 }
