@@ -1,14 +1,15 @@
-import { ISignal, Signal } from "@rbxts/signals-tooling";
+import { ISignal } from "@rbxts/signals-tooling";
 import { IPlayerStatisticsPersistenceLayer } from "../interfaces/IPlayerStatisticsPersistenceLayer";
 import { StatisticsDefinition } from "../types/StatisticsDefinition";
 import { StatisticsSnapshot } from "../types/StatisticsSnapshot";
 import Object from "@rbxts/object-utils";
-import { Dumpster, IDestroyable } from "@rbxts/dumpster";
+import { Dumpster } from "@rbxts/dumpster";
 import { DumpsterFactory } from "factories/DumpsterFactory";
 import { SignalFactory } from "factories/SignalFactory";
 import { attemptTaskWithUnlimitedRetries } from "functions/AttemptTaskWithUnlimitedRetries";
 import { EventsDefinition } from "../types/EventsDefinition";
 import { Players } from "@rbxts/services";
+import { IPlayerStatisticsProvider } from "interfaces/IPlayerStatisticsProvider";
 
 function createDefaultStatisticsSnapshot<Stats extends StatisticsDefinition>(
 	statisticsDefinition: Stats,
@@ -28,7 +29,7 @@ function createDefaultStatisticsSnapshot<Stats extends StatisticsDefinition>(
 export class PlayerStatisticsProvider<
 	StatsDef extends StatisticsDefinition,
 	EventsDef extends EventsDefinition<StatsDef>
-> implements IDestroyable {
+> implements IPlayerStatisticsProvider<StatsDef, EventsDef> {
 	private readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
 	private readonly dumpster: Dumpster;
 	private isDestroyed: boolean;
