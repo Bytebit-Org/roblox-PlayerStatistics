@@ -30,6 +30,8 @@ export class PlayerStatisticsProvider<
 	StatsDef extends StatisticsDefinition,
 	EventsDef extends EventsDefinition<StatsDef>
 > implements IPlayerStatisticsProvider<StatsDef, EventsDef> {
+	public readonly statisticsLoadedForPlayer: ISignal<(player: Player) => void>;
+
 	private readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
 	private readonly dumpster: Dumpster;
 	private isDestroyed: boolean;
@@ -47,10 +49,14 @@ export class PlayerStatisticsProvider<
 		private readonly signalFactory: SignalFactory,
 		private readonly statisticsDefinition: StatsDef,
 	) {
+		this.statisticsLoadedForPlayer = signalFactory.createInstance();
+
 		this.currentStatisticsSnapshotsByPlayer = new Map();
 		this.dumpster = dumpsterFactory.createInstance();
 		this.isDestroyed = false;
 		this.statisticUpdatedSignalsByStatisticName = new Map();
+
+		this.dumpster.dump(this.statisticsLoadedForPlayer);
 
 		this.dumpster.dump(this.statisticUpdatedSignalsByStatisticName, (map) => {
 			map.forEach((signal) => signal.destroy());
@@ -95,6 +101,19 @@ export class PlayerStatisticsProvider<
 
 		this.dumpster.burn();
 		this.isDestroyed = true;
+	}
+
+	public getStatisticsSnapshotForPlayer(player: Player) {
+		if (this.isDestroyed) {
+			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
+		}
+
+		const currentStatisticsSnapshot = this.currentStatisticsSnapshotsByPlayer.get(player);
+		if (currentStatisticsSnapshot === undefined) {
+			throw `Statistics not yet loaded for player ${player.Name}`;
+		}
+
+		return currentStatisticsSnapshot;
 	}
 
 	public getStatisticValueForPlayer(player: Player, statisticName: keyof StatsDef) {
@@ -179,6 +198,17 @@ export class PlayerStatisticsProvider<
 		if (this.currentStatisticsSnapshotsByPlayer.has(player)) {
 			return;
 		}
+
+		const waitUntilFiredSignal = this.signalFactory.createInstance();
+
+		const statisticsLoadedForPlayerConnection = this.statisticsLoadedForPlayer.Connect((statisticsLoadedPlayer) => {
+			if (statisticsLoadedPlayer === player) {
+				statisticsLoadedForPlayerConnection.Disconnect();
+				waitUntilFiredSignal.fire();
+			}
+		});
+
+		waitUntilFiredSignal.Wait();
 	}
 
 	private listenForGameToClose() {
@@ -223,6 +253,8 @@ export class PlayerStatisticsProvider<
 				: { ...defaultStatisticsSnapshot, ...loadedStatisticsSnapshot };
 
 		this.currentStatisticsSnapshotsByPlayer.set(player, statisticsSnapshot);
+
+		this.statisticsLoadedForPlayer.fire(player);
 	}
 
 	private saveStatisticsForPlayer(player: Player) {
