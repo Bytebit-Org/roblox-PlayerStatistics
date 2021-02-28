@@ -28,7 +28,7 @@ jobs:
       - name: install local npm packages
         run: npm i --production=false
       - name: compile typescript code
-        run: npx roblox-ts
+        run: rbxtsc
       - name: install foreman
         uses: rojo-rbx/setup-foreman@v1
         with:
