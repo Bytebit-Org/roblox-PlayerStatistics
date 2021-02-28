@@ -6,10 +6,22 @@ function generateKeyForPlayer(player: Player) {
 	return `player_UserId:${player.UserId}`;
 }
 
+/**
+ * The standard implementation of {@link IPlayerStatisticsPersistenceLayer} which stores player statistic snapshots a DataStore
+ * and overwrites the previous snapshot on each save.
+ */
 export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends StatisticsDefinition>
 	implements IPlayerStatisticsPersistenceLayer<StatsDef> {
+	/**
+	 * Use the create method instead
+	 */
 	private constructor(private readonly dataStore: GlobalDataStore) {}
 
+	/**
+	 * Creates a new instance
+	 * @param this
+	 * @param dataStore The data store to use
+	 */
 	public static create<StatsDef extends StatisticsDefinition>(
 		this: void,
 		dataStore: GlobalDataStore,

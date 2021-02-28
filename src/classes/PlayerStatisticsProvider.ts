@@ -26,6 +26,9 @@ function createDefaultStatisticsSnapshot<Stats extends StatisticsDefinition>(
 	return defaultStatisticsSnapshot as StatisticsSnapshot<Stats>;
 }
 
+/**
+ * The standard implementation of the {@link IPlayerStatisticsProvider}
+ */
 export class PlayerStatisticsProvider<
 	StatsDef extends StatisticsDefinition,
 	EventsDef extends EventsDefinition<StatsDef>
@@ -40,6 +43,9 @@ export class PlayerStatisticsProvider<
 		ISignal<(player: Player, newValue: number, oldValue: number) => void>
 	>;
 
+	/**
+	 * Use the create method instead
+	 */
 	private constructor(
 		private readonly dataModel: DataModel,
 		dumpsterFactory: DumpsterFactory,
@@ -68,6 +74,13 @@ export class PlayerStatisticsProvider<
 		this.listenForPlayersToJoinAndLeave();
 	}
 
+	/**
+	 * Creates a new instance
+	 * @param this
+	 * @param eventsDefinition The events definition to use
+	 * @param playerStatisticsPersistenceLayer The persistence layer to use
+	 * @param statisticsDefinition The statistics definition to use
+	 */
 	public static create<StatsDef extends StatisticsDefinition, EventsDef extends EventsDefinition<StatsDef>>(
 		this: void,
 		eventsDefinition: EventsDef,
