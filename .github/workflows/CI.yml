@@ -27,6 +27,8 @@ jobs:
         run: python install.py "${{ secrets.ROBLOSECURITY }}"
       - name: install roblox-ts
         run: npm i roblox-ts
+      - name: install local npm packages
+        run: npm i
       - name: compile typescript code
         run: npx roblox-ts
       - name: install foreman
