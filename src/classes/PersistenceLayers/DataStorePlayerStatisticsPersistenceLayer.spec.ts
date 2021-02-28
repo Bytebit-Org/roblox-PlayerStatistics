@@ -22,7 +22,7 @@ export = () => {
 			const errorMessage = "data store failed";
 
 			const dataStore = a.fake<GlobalDataStore>();
-			a.callTo(dataStore.GetAsync, fitumi.wildcard).throws(errorMessage);
+			a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).throws(errorMessage);
 
 			const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
 			expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer)).to.throw();
