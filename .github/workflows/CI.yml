@@ -26,7 +26,7 @@ jobs:
       - name: install roblox
         run: python install.py "${{ secrets.ROBLOSECURITY }}"
       - name: install roblox-ts
-        run: npm i roblox-ts
+        run: npm i roblox-ts@beta
       - name: install local npm packages
         run: npm i
       - name: compile typescript code
