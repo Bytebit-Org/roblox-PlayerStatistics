@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-/// <reference types="@rbxts/testez/global" />
+/// <reference types="@rbxts/testez/globals" />
 
 import fitumi from "@rbxts/fitumi";
 import { a } from "@rbxts/fitumi";
