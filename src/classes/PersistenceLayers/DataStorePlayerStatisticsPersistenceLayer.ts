@@ -6,11 +6,14 @@ function generateKeyForPlayer(player: Player) {
 	return `player_UserId:${player.UserId}`;
 }
 
-export class DataStorePlayerStatisticsPersistenceLayer<Stats extends StatisticsDefinition>
-	implements IPlayerStatisticsPersistenceLayer<Stats> {
+export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends StatisticsDefinition>
+	implements IPlayerStatisticsPersistenceLayer<StatsDef> {
 	private constructor(private readonly dataStore: GlobalDataStore) {}
 
-	public static create(this: void, dataStore: GlobalDataStore) {
+	public static create<StatsDef extends StatisticsDefinition>(
+		this: void,
+		dataStore: GlobalDataStore,
+	): IPlayerStatisticsPersistenceLayer<StatsDef> {
 		return new DataStorePlayerStatisticsPersistenceLayer(dataStore);
 	}
 
@@ -31,7 +34,10 @@ export class DataStorePlayerStatisticsPersistenceLayer<Stats extends StatisticsD
 		return undefined;
 	}
 
-	public async saveStatisticsSnapshotForPlayerAsync(player: Player, statisticsSnapshot: StatisticsSnapshot<Stats>) {
+	public async saveStatisticsSnapshotForPlayerAsync(
+		player: Player,
+		statisticsSnapshot: StatisticsSnapshot<StatsDef>,
+	) {
 		return Promise.promisify(() => this.dataStore.SetAsync(generateKeyForPlayer(player), statisticsSnapshot))();
 	}
 }

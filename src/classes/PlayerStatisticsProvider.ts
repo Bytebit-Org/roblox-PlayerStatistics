@@ -67,7 +67,7 @@ export class PlayerStatisticsProvider<
 		eventsDefinition: EventsDef,
 		playerStatisticsPersistenceLayer: IPlayerStatisticsPersistenceLayer<StatsDef>,
 		statisticsDefinition: StatsDef,
-	) {
+	): IPlayerStatisticsProvider<StatsDef, EventsDef> {
 		return new PlayerStatisticsProvider(
 			game,
 			new DumpsterFactory(),
