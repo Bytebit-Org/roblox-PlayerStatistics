@@ -18,14 +18,15 @@ export = () => {
 	fakePlayer.UserId = 123456789;
 
 	describe("loadStatisticsSnapshotForPlayerAsync", () => {
-		it("should throw if GetAsync throws", async () => {
-			const errorMessage = "data store failed";
+		it("should throw if GetAsync throws", () =>
+			(async () => {
+				const errorMessage = "data store failed";
 
-			const dataStore = a.fake<GlobalDataStore>();
-			a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).throws(errorMessage);
+				const dataStore = a.fake<GlobalDataStore>();
+				a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).throws(errorMessage);
 
-			const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
-			expect(async () => await persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer)).to.throw();
-		});
+				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+				expect(async () => await persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer)).to.throw();
+			})().expect());
 	});
 };
