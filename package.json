@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@rbxts/dumpster": "^1.0.8",
-    "@rbxts/fitumi": "^1.0.7-RC.14",
+    "@rbxts/fitumi": "^1.0.7",
     "@rbxts/inspect": "^1.0.1",
     "@rbxts/object-utils": "^1.0.4",
     "@rbxts/services": "^1.1.2",
