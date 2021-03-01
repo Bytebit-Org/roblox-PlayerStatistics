@@ -12,7 +12,7 @@ type Mutable<T> = {
 
 export = () => {
 	const createDataStorePlayerStatisticsPersistenceLayer = (args: Partial<{ dataStore: GlobalDataStore }>) =>
-		DataStorePlayerStatisticsPersistenceLayer.create(args.dataStore ?? a.fake<GlobalDataStore>());
+		DataStorePlayerStatisticsPersistenceLayer.create<{}>(args.dataStore ?? a.fake<GlobalDataStore>());
 
 	const fakePlayer = a.fake<Mutable<Player>>();
 	fakePlayer.UserId = 123456789;
@@ -66,6 +66,34 @@ export = () => {
 				expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).to.equal(
 					dataStoreFetchResult,
 				);
+			})().expect());
+	});
+
+	describe("saveStatisticsSnapshotForPlayerAsync", () => {
+		it("should throw if SetAsync throws", () =>
+			(async () => {
+				const statisticsSnapshot = {};
+				const errorMessage = "data store failed";
+
+				const dataStore = a.fake<GlobalDataStore>();
+				a.callTo(dataStore.SetAsync as {}, dataStore, fitumi.wildcard, statisticsSnapshot).throws(errorMessage);
+
+				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+				expect(() =>
+					persistenceLayer.saveStatisticsSnapshotForPlayerAsync(fakePlayer, statisticsSnapshot).expect(),
+				).to.throw();
+			})().expect());
+
+		it("should succeed if SetAsync does not throw", () =>
+			(async () => {
+				const statisticsSnapshot = {};
+
+				const dataStore = a.fake<GlobalDataStore>();
+
+				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+				expect(() =>
+					persistenceLayer.saveStatisticsSnapshotForPlayerAsync(fakePlayer, statisticsSnapshot).expect(),
+				).never.to.throw();
 			})().expect());
 	});
 };
