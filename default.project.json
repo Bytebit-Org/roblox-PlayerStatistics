@@ -13,6 +13,12 @@
 			"out": {
 				"$path": "./out"
 			}
+		},
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"TestRunner": {
+				"$path": "./spec.server.lua"
+			}
 		}
 	}
 }

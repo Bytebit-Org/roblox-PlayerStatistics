@@ -6,15 +6,11 @@ import fitumi from "@rbxts/fitumi";
 import { a } from "@rbxts/fitumi";
 import { DataStorePlayerStatisticsPersistenceLayer } from "./DataStorePlayerStatisticsPersistenceLayer";
 
-type Mutable<T> = {
-	-readonly [P in keyof T]: T[P];
-};
-
 export = () => {
 	const createDataStorePlayerStatisticsPersistenceLayer = (args: Partial<{ dataStore: GlobalDataStore }>) =>
 		DataStorePlayerStatisticsPersistenceLayer.create<{}>(args.dataStore ?? a.fake<GlobalDataStore>());
 
-	const fakePlayer = a.fake<Mutable<Player>>();
+	const fakePlayer = a.fake<Player>();
 	fakePlayer.Name = "TestUser";
 	fakePlayer.UserId = 123456789;
 

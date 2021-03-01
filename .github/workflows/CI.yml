@@ -38,4 +38,4 @@ jobs:
       - name: run rojo build
         run: rojo build -o .\\unit_tests.rbxlx
       - name: run tests
-        run: run-in-roblox --place .\\unit_tests.rbxlx --script .\\spec.lua
+        run: run-in-roblox --place .\\unit_tests.rbxlx --script .\\spec.server.lua
