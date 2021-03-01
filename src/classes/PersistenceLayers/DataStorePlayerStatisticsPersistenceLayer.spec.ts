@@ -25,7 +25,7 @@ export = () => {
 			a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).throws(errorMessage);
 
 			const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
-			expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer)).to.throw();
+			expect(async () => await persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer)).to.throw();
 		});
 	});
 };
