@@ -30,20 +30,22 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 	}
 
 	public async loadStatisticsSnapshotForPlayerAsync(player: Player) {
-		const dataStoreFetchResult = await Promise.promisify(() =>
-			this.dataStore.GetAsync(generateKeyForPlayer(player)),
-		)();
+		return await Promise.promisify(() => this.dataStore.GetAsync(generateKeyForPlayer(player)))()
+			.then((dataStoreFetchResult) => {
+				if (dataStoreFetchResult === undefined || typeIs(dataStoreFetchResult, "table")) {
+					return dataStoreFetchResult;
+				}
 
-		if (dataStoreFetchResult === undefined || typeIs(dataStoreFetchResult, "table")) {
-			return dataStoreFetchResult;
-		}
-
-		warn(
-			`Invalid data found in data store for player ${
-				player.Name
-			}. Expected nil or table, got value of type "${typeOf(dataStoreFetchResult)}. Returning nil instead."`,
-		);
-		return undefined;
+				warn(
+					`Invalid data found in data store for player ${
+						player.Name
+					}. Expected nil or table, got value of type "${typeOf(
+						dataStoreFetchResult,
+					)}. Returning nil instead."`,
+				);
+				return undefined;
+			})
+			.catch((reason) => error(reason));
 	}
 
 	public async saveStatisticsSnapshotForPlayerAsync(
