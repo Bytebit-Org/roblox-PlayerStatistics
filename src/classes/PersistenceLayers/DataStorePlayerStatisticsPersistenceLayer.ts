@@ -29,7 +29,7 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		return new DataStorePlayerStatisticsPersistenceLayer(dataStore);
 	}
 
-	public async loadStatisticsSnapshotForPlayerAsync(player: Player) {
+	public loadStatisticsSnapshotForPlayerAsync(player: Player) {
 		return Promise.promisify(() => this.dataStore.GetAsync(generateKeyForPlayer(player)))().then(
 			(dataStoreFetchResult) => {
 				if (dataStoreFetchResult === undefined || typeIs(dataStoreFetchResult, "table")) {
@@ -48,10 +48,7 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		);
 	}
 
-	public async saveStatisticsSnapshotForPlayerAsync(
-		player: Player,
-		statisticsSnapshot: StatisticsSnapshot<StatsDef>,
-	) {
+	public saveStatisticsSnapshotForPlayerAsync(player: Player, statisticsSnapshot: StatisticsSnapshot<StatsDef>) {
 		return Promise.promisify(() => this.dataStore.SetAsync(generateKeyForPlayer(player), statisticsSnapshot))();
 	}
 }
