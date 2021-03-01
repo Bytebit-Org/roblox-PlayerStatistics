@@ -15,6 +15,7 @@ export = () => {
 		DataStorePlayerStatisticsPersistenceLayer.create<{}>(args.dataStore ?? a.fake<GlobalDataStore>());
 
 	const fakePlayer = a.fake<Mutable<Player>>();
+	fakePlayer.Name = "TestUser";
 	fakePlayer.UserId = 123456789;
 
 	describe("loadStatisticsSnapshotForPlayerAsync", () => {
@@ -35,9 +36,7 @@ export = () => {
 				a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(undefined);
 
 				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
-				expect(() =>
-					persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect(),
-				).never.to.be.ok();
+				expect(persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).never.to.be.ok();
 			})().expect());
 
 		it("should return nil if GetAsync returns a non-table value", () =>
@@ -49,9 +48,7 @@ export = () => {
 					a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(value);
 
 					const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
-					expect(() =>
-						persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect(),
-					).never.to.be.ok();
+					expect(persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).never.to.be.ok();
 				}
 			})().expect());
 
@@ -63,7 +60,7 @@ export = () => {
 				a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(dataStoreFetchResult);
 
 				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
-				expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).to.equal(
+				expect(persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).to.equal(
 					dataStoreFetchResult,
 				);
 			})().expect());
