@@ -28,5 +28,44 @@ export = () => {
 				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
 				expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).to.throw();
 			})().expect());
+
+		it("should return nil if GetAsync returns nil", () =>
+			(async () => {
+				const dataStore = a.fake<GlobalDataStore>();
+				a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(undefined);
+
+				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+				expect(() =>
+					persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect(),
+				).never.to.be.ok();
+			})().expect());
+
+		it("should return nil if GetAsync returns a non-table value", () =>
+			(async () => {
+				const values = [1, true, "three"];
+
+				for (const value of values) {
+					const dataStore = a.fake<GlobalDataStore>();
+					a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(value);
+
+					const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+					expect(() =>
+						persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect(),
+					).never.to.be.ok();
+				}
+			})().expect());
+
+		it("should return the same table that GetAsync returns", () =>
+			(async () => {
+				const dataStoreFetchResult = {};
+
+				const dataStore = a.fake<GlobalDataStore>();
+				a.callTo(dataStore.GetAsync as {}, dataStore, fitumi.wildcard).returns(dataStoreFetchResult);
+
+				const persistenceLayer = createDataStorePlayerStatisticsPersistenceLayer({ dataStore });
+				expect(() => persistenceLayer.loadStatisticsSnapshotForPlayerAsync(fakePlayer).expect()).to.equal(
+					dataStoreFetchResult,
+				);
+			})().expect());
 	});
 };

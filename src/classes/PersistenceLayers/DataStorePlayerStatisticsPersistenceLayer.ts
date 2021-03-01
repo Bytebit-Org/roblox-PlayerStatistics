@@ -30,7 +30,7 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 	}
 
 	public async loadStatisticsSnapshotForPlayerAsync(player: Player) {
-		return await Promise.promisify(() => this.dataStore.GetAsync(generateKeyForPlayer(player)))().then(
+		return Promise.promisify(() => this.dataStore.GetAsync(generateKeyForPlayer(player)))().then(
 			(dataStoreFetchResult) => {
 				if (dataStoreFetchResult === undefined || typeIs(dataStoreFetchResult, "table")) {
 					return dataStoreFetchResult;
