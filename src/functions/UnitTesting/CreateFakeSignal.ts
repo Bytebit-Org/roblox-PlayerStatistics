@@ -1,51 +1,14 @@
-import { AnyArgs } from "@rbxts/signals-tooling";
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
+import { AnyArgs, ISignal } from "@rbxts/signals-tooling";
 import { RunService } from "@rbxts/services";
 
 type SignalConnection = {
-<<<<<<< HEAD
-	Connected: boolean;
-=======
 	readonly Connected: boolean;
 	Disconnect(): void;
->>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e
 };
 
-export const createFakeSignal = <T extends AnyArgs>() => {
+export const createFakeSignal: <T extends AnyArgs>() => ISignal<T> = <T extends AnyArgs>() => {
 	const handlers = new Array<T>();
-<<<<<<< HEAD
-
-	const connectFunction = function (this: unknown, handlerFunction: T) {
-		handlers.push(handlerFunction);
-
-		const isConnected = false;
-
-		const disconnectFunction = function (this: SignalConnection) {
-			let removeIndex = handlers.size() + 1;
-
-			for (let i = 0; i < handlers.size(); i++) {
-				if (handlers[i] === handlerFunction) {
-					removeIndex = i;
-					break;
-				}
-			}
-
-			handlers.remove(removeIndex);
-		};
-
-		return {
-			Connected: isConnected,
-			Disconnect: disconnectFunction,
-		};
-	};
-
-	const fireFunction = function (this: unknown, ...args: Parameters<T>) {
-		for (let i = 0; i < handlers.size(); i++) {
-			handlers[i](...args);
-		}
-	};
-
-	const waitFunction = function (this: unknown) {
-=======
 	const connections = new Array<SignalConnection>();
 
 	const connectFunction = function (handlerFunction: T) {
@@ -100,7 +63,6 @@ export const createFakeSignal = <T extends AnyArgs>() => {
 	};
 
 	const waitFunction = function () {
->>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e
 		let stillWaiting = true;
 		let resultingArgs!: Parameters<T>;
 		const handlerFunction = (...args: Parameters<T>) => {
@@ -117,15 +79,7 @@ export const createFakeSignal = <T extends AnyArgs>() => {
 		return resultingArgs;
 	};
 
-	return {
-<<<<<<< HEAD
-		connect: connectFunction,
-		Connect: connectFunction,
-		wait: waitFunction,
-		Wait: waitFunction,
-
-		fire: fireFunction,
-=======
+	return ({
 		connect: function (this: unknown, ...args: Parameters<typeof connectFunction>) {
 			return connectFunction(...args);
 		},
@@ -146,6 +100,5 @@ export const createFakeSignal = <T extends AnyArgs>() => {
 		fire: function (this: unknown, ...args: Parameters<typeof fireFunction>) {
 			return fireFunction(...args);
 		},
->>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e
-	};
+	} as unknown) as ISignal<T>;
 };
