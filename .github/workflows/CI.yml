@@ -15,8 +15,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
+<<<<<<< HEAD
         with:
           submodules: recursive
+=======
+>>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e
       - name: download roblox install script
         run: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/OrbitalOwen/roblox-win-installer/master/install.py" -OutFile install.py
       - name: download settings file
@@ -25,6 +28,15 @@ jobs:
         run: pip install wget psutil
       - name: install roblox
         run: python install.py "${{ secrets.ROBLOSECURITY }}"
+<<<<<<< HEAD
+=======
+      - name: install roblox-ts
+        run: npm i -g roblox-ts@1.0.0-beta.15
+      - name: install local npm packages
+        run: npm i --production=false
+      - name: compile typescript code
+        run: rbxtsc --type=game
+>>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e
       - name: install foreman
         uses: rojo-rbx/setup-foreman@v1
         with:
@@ -34,4 +46,8 @@ jobs:
       - name: run rojo build
         run: rojo build -o .\\unit_tests.rbxlx
       - name: run tests
+<<<<<<< HEAD
         run: run-in-roblox --place .\\unit_tests.rbxlx --script .\\spec.lua
+=======
+        run: run-in-roblox --place .\\unit_tests.rbxlx --script .\\spec.server.lua
+>>>>>>> 500ee1497247cc90d8105f5ec617b146e142272e

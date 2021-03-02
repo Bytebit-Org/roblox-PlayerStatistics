@@ -41,7 +41,7 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		warn(
 			`Invalid data found in data store for player ${
 				player.Name
-			}. Expected nil or table, got value of type "${typeOf(dataStoreFetchResult)}. Returning nil instead."`,
+			}. Expected nil or table, got value of type "${typeOf(dataStoreFetchResult)}". Returning nil instead.`,
 		);
 		return undefined;
 	}
@@ -50,6 +50,6 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		player: Player,
 		statisticsSnapshot: StatisticsSnapshot<StatsDef>,
 	) {
-		return Promise.promisify(() => this.dataStore.SetAsync(generateKeyForPlayer(player), statisticsSnapshot))();
+		await Promise.promisify(() => this.dataStore.SetAsync(generateKeyForPlayer(player), statisticsSnapshot))();
 	}
 }

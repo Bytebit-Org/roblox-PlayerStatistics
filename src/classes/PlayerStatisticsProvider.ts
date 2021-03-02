@@ -35,10 +35,12 @@ export class PlayerStatisticsProvider<
 > implements IPlayerStatisticsProvider<StatsDef, EventsDef> {
 	public readonly statisticsLoadedForPlayer: ISignal<(player: Player) => void>;
 
-	private readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
-	private readonly dumpster: Dumpster;
-	private isDestroyed: boolean;
-	private readonly statisticUpdatedSignalsByStatisticName: Map<
+	// Note: all protected members should be considered private and are protected for unit testing
+
+	protected readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
+	protected readonly dumpster: Dumpster;
+	protected isDestroyed: boolean;
+	protected readonly statisticUpdatedSignalsByStatisticName: Map<
 		keyof StatsDef,
 		ISignal<(player: Player, newValue: number, oldValue: number) => void>
 	>;
@@ -46,14 +48,14 @@ export class PlayerStatisticsProvider<
 	/**
 	 * Use the create method instead
 	 */
-	private constructor(
-		private readonly dataModel: DataModel,
+	protected constructor(
+		protected readonly dataModel: DataModel,
 		dumpsterFactory: DumpsterFactory,
-		private readonly eventsDefinition: EventsDef,
-		private readonly playersService: Players,
-		private readonly playerStatisticsPersistenceLayer: IPlayerStatisticsPersistenceLayer<StatsDef>,
-		private readonly signalFactory: SignalFactory,
-		private readonly statisticsDefinition: StatsDef,
+		protected readonly eventsDefinition: EventsDef,
+		protected readonly playersService: Players,
+		protected readonly playerStatisticsPersistenceLayer: IPlayerStatisticsPersistenceLayer<StatsDef>,
+		protected readonly signalFactory: SignalFactory,
+		protected readonly statisticsDefinition: StatsDef,
 	) {
 		this.statisticsLoadedForPlayer = signalFactory.createInstance();
 
@@ -194,6 +196,10 @@ export class PlayerStatisticsProvider<
 		statisticName: keyof StatsDef,
 		handler: (player: Player, newValue: number, oldValue: number) => void,
 	) {
+		if (this.isDestroyed) {
+			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
+		}
+
 		let statisticUpdatedSignal = this.statisticUpdatedSignalsByStatisticName.get(statisticName);
 		if (statisticUpdatedSignal === undefined) {
 			statisticUpdatedSignal = this.signalFactory.createInstance();
@@ -237,11 +243,13 @@ export class PlayerStatisticsProvider<
 	}
 
 	private listenForPlayersToJoinAndLeave() {
-		this.playersService.PlayerRemoving.Connect((player) => {
-			this.saveStatisticsForPlayer(player);
+		this.dumpster.dump(
+			this.playersService.PlayerRemoving.Connect((player) => {
+				this.saveStatisticsForPlayer(player);
 
-			this.currentStatisticsSnapshotsByPlayer.delete(player);
-		});
+				this.currentStatisticsSnapshotsByPlayer.delete(player);
+			}),
+		);
 
 		this.dumpster.dump(
 			this.playersService.PlayerAdded.Connect((player) => this.loadStatisticsForPlayerAsync(player)),
