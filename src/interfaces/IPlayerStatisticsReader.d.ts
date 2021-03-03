@@ -1,6 +1,6 @@
 import { ISignalConnection } from "@rbxts/signals-tooling";
-import { StatisticsDefinition } from "types/StatisticsDefinition";
-import { StatisticsSnapshot } from "types/StatisticsSnapshot";
+import { StatisticsDefinition } from "../types/StatisticsDefinition";
+import { StatisticsSnapshot } from "../types/StatisticsSnapshot";
 import { IPlayerStatisticsLoader } from "./IPlayerStatisticsLoader";
 
 /**

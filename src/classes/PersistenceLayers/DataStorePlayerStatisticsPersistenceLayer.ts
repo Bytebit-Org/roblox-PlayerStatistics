@@ -1,6 +1,6 @@
-import { IPlayerStatisticsPersistenceLayer } from "interfaces/IPlayerStatisticsPersistenceLayer";
-import { StatisticsDefinition } from "types/StatisticsDefinition";
-import { StatisticsSnapshot } from "types/StatisticsSnapshot";
+import { IPlayerStatisticsPersistenceLayer } from "../../interfaces/IPlayerStatisticsPersistenceLayer";
+import { StatisticsDefinition } from "../../types/StatisticsDefinition";
+import { StatisticsSnapshot } from "../../types/StatisticsSnapshot";
 
 function generateKeyForPlayer(player: Player) {
 	return `player_UserId:${player.UserId}`;

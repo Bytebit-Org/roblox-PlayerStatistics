@@ -6,13 +6,13 @@ import { Dumpster } from "@rbxts/dumpster";
 import fitumi from "@rbxts/fitumi";
 import { a } from "@rbxts/fitumi";
 import { HttpService, RunService } from "@rbxts/services";
-import { DumpsterFactory } from "factories/DumpsterFactory";
-import { SignalFactory } from "factories/SignalFactory";
-import { createFakeSignal } from "functions/UnitTesting/CreateFakeSignal";
+import { DumpsterFactory } from "../factories/DumpsterFactory";
+import { SignalFactory } from "../factories/SignalFactory";
+import { createFakeSignal } from "../functions/UnitTesting/CreateFakeSignal";
 import { IPlayerStatisticsPersistenceLayer } from "index";
 import { StandardStatisticUpdateFunctions } from "StandardStatisticUpdateFunctions";
-import { EventsDefinition } from "types/EventsDefinition";
-import { StatisticsSnapshot } from "types/StatisticsSnapshot";
+import { EventsDefinition } from "../types/EventsDefinition";
+import { StatisticsSnapshot } from "../types/StatisticsSnapshot";
 import { PlayerStatisticsProvider } from "./PlayerStatisticsProvider";
 
 function ensureExtends<S, T extends S>(value: T): T {

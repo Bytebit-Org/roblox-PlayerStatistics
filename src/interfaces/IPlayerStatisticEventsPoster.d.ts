@@ -1,5 +1,5 @@
-import { EventsDefinition } from "types/EventsDefinition";
-import { StatisticsDefinition } from "types/StatisticsDefinition";
+import { EventsDefinition } from "../types/EventsDefinition";
+import { StatisticsDefinition } from "../types/StatisticsDefinition";
 import { IPlayerStatisticsLoader } from "./IPlayerStatisticsLoader";
 
 /**

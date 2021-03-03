@@ -1,5 +1,5 @@
-import { StatisticsDefinition } from "types/StatisticsDefinition";
-import { StatisticsSnapshot } from "types/StatisticsSnapshot";
+import { StatisticsDefinition } from "../types/StatisticsDefinition";
+import { StatisticsSnapshot } from "../types/StatisticsSnapshot";
 
 /**
  * Provides an interface for a persistence layer for player statistics

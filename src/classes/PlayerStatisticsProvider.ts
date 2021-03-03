@@ -4,12 +4,12 @@ import { StatisticsDefinition } from "../types/StatisticsDefinition";
 import { StatisticsSnapshot } from "../types/StatisticsSnapshot";
 import Object from "@rbxts/object-utils";
 import { Dumpster } from "@rbxts/dumpster";
-import { DumpsterFactory } from "factories/DumpsterFactory";
-import { SignalFactory } from "factories/SignalFactory";
-import { attemptTaskWithUnlimitedRetries } from "functions/AttemptTaskWithUnlimitedRetries";
+import { DumpsterFactory } from "../factories/DumpsterFactory";
+import { SignalFactory } from "../factories/SignalFactory";
+import { attemptTaskWithUnlimitedRetries } from "../functions/AttemptTaskWithUnlimitedRetries";
 import { EventsDefinition } from "../types/EventsDefinition";
 import { Players } from "@rbxts/services";
-import { IPlayerStatisticsProvider } from "interfaces/IPlayerStatisticsProvider";
+import { IPlayerStatisticsProvider } from "../interfaces/IPlayerStatisticsProvider";
 
 function createDefaultStatisticsSnapshot<Stats extends StatisticsDefinition>(
 	statisticsDefinition: Stats,
