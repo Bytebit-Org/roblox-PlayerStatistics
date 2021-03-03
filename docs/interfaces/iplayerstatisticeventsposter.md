@@ -41,7 +41,7 @@ Fired when statistics are loaded for a player
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md).[statisticsLoadedForPlayer](iplayerstatisticsloader.md#statisticsloadedforplayer)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
 
 ## Methods
 
@@ -61,7 +61,7 @@ Name | Type | Description |
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
 
 ___
 
@@ -81,7 +81,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [src/interfaces/IPlayerStatisticEventsPoster.d.ts:18](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticEventsPoster.d.ts#L18)
+Defined in: [src/interfaces/IPlayerStatisticEventsPoster.d.ts:18](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticEventsPoster.d.ts#L18)
 
 ___
 
@@ -101,4 +101,4 @@ Name | Type | Description |
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)

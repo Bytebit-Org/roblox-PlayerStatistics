@@ -29,9 +29,6 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		return new DataStorePlayerStatisticsPersistenceLayer(dataStore);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public async loadStatisticsSnapshotForPlayerAsync(player: Player) {
 		const dataStoreFetchResult = await Promise.promisify(() =>
 			this.dataStore.GetAsync(generateKeyForPlayer(player)),
@@ -49,9 +46,6 @@ export class DataStorePlayerStatisticsPersistenceLayer<StatsDef extends Statisti
 		return undefined;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public async saveStatisticsSnapshotForPlayerAsync(
 		player: Player,
 		statisticsSnapshot: StatisticsSnapshot<StatsDef>,

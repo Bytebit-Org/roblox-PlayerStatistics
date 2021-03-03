@@ -33,9 +33,6 @@ export class PlayerStatisticsProvider<
 	StatsDef extends StatisticsDefinition,
 	EventsDef extends EventsDefinition<StatsDef>
 > implements IPlayerStatisticsProvider<StatsDef, EventsDef> {
-	/**
-	 * @inheritdoc
-	 */
 	public readonly statisticsLoadedForPlayer: ISignal<(player: Player) => void>;
 
 	private readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
@@ -103,9 +100,6 @@ export class PlayerStatisticsProvider<
 		);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public areStatisticsLoadedForPlayer(player: Player) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
@@ -114,9 +108,6 @@ export class PlayerStatisticsProvider<
 		return this.currentStatisticsSnapshotsByPlayer.has(player);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public destroy() {
 		if (this.isDestroyed) {
 			warn(`Attempt to destroy an already destroyed instance of type ${getmetatable(this)}`);
@@ -127,9 +118,6 @@ export class PlayerStatisticsProvider<
 		this.isDestroyed = true;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public getStatisticsSnapshotForPlayer(player: Player) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
@@ -143,9 +131,6 @@ export class PlayerStatisticsProvider<
 		return currentStatisticsSnapshot;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public getStatisticValueForPlayer(player: Player, statisticName: keyof StatsDef) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
@@ -159,9 +144,6 @@ export class PlayerStatisticsProvider<
 		return currentStatisticsSnapshot[statisticName];
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public recordEvent(player: Player, eventName: keyof EventsDef, value: number) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;
@@ -210,9 +192,6 @@ export class PlayerStatisticsProvider<
 		}
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public subscribeToStatisticUpdates(
 		statisticName: keyof StatsDef,
 		handler: (player: Player, newValue: number, oldValue: number) => void,
@@ -230,9 +209,6 @@ export class PlayerStatisticsProvider<
 		return statisticUpdatedSignal.Connect(handler);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public waitForStatisticsToLoadForPlayer(player: Player) {
 		if (this.isDestroyed) {
 			throw `Attempt to call a method on a destroyed instance of type ${getmetatable(this)}`;

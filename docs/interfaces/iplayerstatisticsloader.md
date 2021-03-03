@@ -31,7 +31,7 @@ Provides an interface for loading player statistics
 
 Fired when statistics are loaded for a player
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
 
 ## Methods
 
@@ -49,7 +49,7 @@ Name | Type | Description |
 
 **Returns:** *boolean*
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
 
 ___
 
@@ -67,4 +67,4 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/cabdfbf/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)
