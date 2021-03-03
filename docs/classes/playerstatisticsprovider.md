@@ -19,16 +19,6 @@ Name | Type |
 
 ### Properties
 
-- [currentStatisticsSnapshotsByPlayer](playerstatisticsprovider.md#currentstatisticssnapshotsbyplayer)
-- [dataModel](playerstatisticsprovider.md#datamodel)
-- [dumpster](playerstatisticsprovider.md#dumpster)
-- [eventsDefinition](playerstatisticsprovider.md#eventsdefinition)
-- [isDestroyed](playerstatisticsprovider.md#isdestroyed)
-- [playerStatisticsPersistenceLayer](playerstatisticsprovider.md#playerstatisticspersistencelayer)
-- [playersService](playerstatisticsprovider.md#playersservice)
-- [signalFactory](playerstatisticsprovider.md#signalfactory)
-- [statisticUpdatedSignalsByStatisticName](playerstatisticsprovider.md#statisticupdatedsignalsbystatisticname)
-- [statisticsDefinition](playerstatisticsprovider.md#statisticsdefinition)
 - [statisticsLoadedForPlayer](playerstatisticsprovider.md#statisticsloadedforplayer)
 
 ### Methods
@@ -44,74 +34,6 @@ Name | Type |
 
 ## Properties
 
-### currentStatisticsSnapshotsByPlayer
-
-• `Protected` `Readonly` **currentStatisticsSnapshotsByPlayer**: *Map*<Player, [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>\>
-
-Defined in: [src/classes/PlayerStatisticsProvider.ts:40](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L40)
-
-___
-
-### dataModel
-
-• `Protected` `Readonly` **dataModel**: *DataModel*
-
-___
-
-### dumpster
-
-• `Protected` `Readonly` **dumpster**: *Dumpster*
-
-Defined in: [src/classes/PlayerStatisticsProvider.ts:41](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L41)
-
-___
-
-### eventsDefinition
-
-• `Protected` `Readonly` **eventsDefinition**: EventsDef
-
-___
-
-### isDestroyed
-
-• `Protected` **isDestroyed**: *boolean*
-
-Defined in: [src/classes/PlayerStatisticsProvider.ts:42](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L42)
-
-___
-
-### playerStatisticsPersistenceLayer
-
-• `Protected` `Readonly` **playerStatisticsPersistenceLayer**: [*IPlayerStatisticsPersistenceLayer*](../interfaces/iplayerstatisticspersistencelayer.md)<StatsDef\>
-
-___
-
-### playersService
-
-• `Protected` `Readonly` **playersService**: *Players*
-
-___
-
-### signalFactory
-
-• `Protected` `Readonly` **signalFactory**: *SignalFactory*
-
-___
-
-### statisticUpdatedSignalsByStatisticName
-
-• `Protected` `Readonly` **statisticUpdatedSignalsByStatisticName**: *Map*<keyof StatsDef, ISignal<(`player`: *Player*, `newValue`: *number*, `oldValue`: *number*) => *void*\>\>
-
-Defined in: [src/classes/PlayerStatisticsProvider.ts:43](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L43)
-
-___
-
-### statisticsDefinition
-
-• `Protected` `Readonly` **statisticsDefinition**: StatsDef
-
-___
-
 ### statisticsLoadedForPlayer
 
 • `Readonly` **statisticsLoadedForPlayer**: *ISignal*<(`player`: *Player*) => *void*\>
@@ -120,7 +42,7 @@ Fired when statistics are loaded for a player
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md).[statisticsLoadedForPlayer](../interfaces/iplayerstatisticsprovider.md#statisticsloadedforplayer)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:36](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L36)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:36](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L36)
 
 ## Methods
 
@@ -140,7 +62,7 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:105](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L105)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:103](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L103)
 
 ___
 
@@ -154,7 +76,7 @@ Clean up everything
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:113](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L113)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:111](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L111)
 
 ___
 
@@ -171,7 +93,7 @@ Name | Type |
 
 **Returns:** [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>[keyof StatsDef]
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:136](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L136)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:134](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L134)
 
 ___
 
@@ -191,7 +113,7 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:123](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L123)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:121](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L121)
 
 ___
 
@@ -209,7 +131,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:149](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L149)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:147](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L147)
 
 ___
 
@@ -226,7 +148,7 @@ Name | Type |
 
 **Returns:** ISignalConnection
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:197](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L197)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:195](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L195)
 
 ___
 
@@ -246,7 +168,7 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:214](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L214)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:212](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L212)
 
 ___
 
@@ -273,4 +195,4 @@ Name | Type | Description |
 
 **Returns:** [*IPlayerStatisticsProvider*](../interfaces/iplayerstatisticsprovider.md)<StatsDef, EventsDef\>
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:88](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PlayerStatisticsProvider.ts#L88)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:86](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L86)

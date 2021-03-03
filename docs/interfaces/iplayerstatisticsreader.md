@@ -42,7 +42,7 @@ Fired when statistics are loaded for a player
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md).[statisticsLoadedForPlayer](iplayerstatisticsloader.md#statisticsloadedforplayer)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:8](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsLoader.d.ts#L8)
 
 ## Methods
 
@@ -62,7 +62,7 @@ Name | Type | Description |
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsLoader.d.ts#L14)
 
 ___
 
@@ -81,7 +81,7 @@ Name | Type | Description |
 
 **Returns:** *number*
 
-Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:21](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsReader.d.ts#L21)
+Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:21](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsReader.d.ts#L21)
 
 ___
 
@@ -99,7 +99,7 @@ Name | Type | Description |
 
 **Returns:** [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>
 
-Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsReader.d.ts#L14)
+Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:14](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsReader.d.ts#L14)
 
 ___
 
@@ -118,7 +118,7 @@ Name | Type | Description |
 
 **Returns:** ISignalConnection
 
-Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:28](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsReader.d.ts#L28)
+Defined in: [src/interfaces/IPlayerStatisticsReader.d.ts:28](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsReader.d.ts#L28)
 
 ___
 
@@ -138,4 +138,4 @@ Name | Type | Description |
 
 Inherited from: [IPlayerStatisticsLoader](iplayerstatisticsloader.md)
 
-Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)
+Defined in: [src/interfaces/IPlayerStatisticsLoader.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsLoader.d.ts#L20)

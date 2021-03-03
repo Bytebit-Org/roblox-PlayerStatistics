@@ -41,7 +41,7 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:32](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L32)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:32](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L32)
 
 ___
 
@@ -62,7 +62,7 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:49](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L49)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:49](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L49)
 
 ___
 
@@ -86,4 +86,4 @@ Name | Type | Description |
 
 **Returns:** [*IPlayerStatisticsPersistenceLayer*](../interfaces/iplayerstatisticspersistencelayer.md)<StatsDef\>
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)

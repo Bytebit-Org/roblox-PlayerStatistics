@@ -6,7 +6,6 @@ import { Dumpster } from "@rbxts/dumpster";
 import fitumi from "@rbxts/fitumi";
 import { a } from "@rbxts/fitumi";
 import { HttpService, RunService } from "@rbxts/services";
-import { ISignal } from "@rbxts/signals-tooling";
 import { DumpsterFactory } from "factories/DumpsterFactory";
 import { SignalFactory } from "factories/SignalFactory";
 import { createFakeSignal } from "functions/UnitTesting/CreateFakeSignal";
@@ -111,16 +110,12 @@ class UnitTestablePlayerStatisticsProvider extends PlayerStatisticsProvider<type
 			statsDef,
 		);
 	}
-
-	public getIsDestroyed() {
-		return this.isDestroyed;
-	}
 }
 
 export = () => {
 	// IDestroyable
 	describe("destroy", () => {
-		it("should call burn on the instance's dumpster and set isDestroyed to true", () => {
+		it("should call burn on the instance's dumpster", () => {
 			const dumpster = a.fake<Dumpster>();
 			const dumpsterFactory = a.fake<DumpsterFactory>();
 			a.callTo(dumpsterFactory.createInstance as {}, dumpsterFactory).returns(dumpster);
@@ -130,7 +125,6 @@ export = () => {
 			playerStatisticsProvider.destroy();
 
 			expect(a.callTo(dumpster.burn as {}, dumpster).didHappen()).to.equal(true);
-			expect(playerStatisticsProvider.getIsDestroyed()).to.equal(true);
 		});
 	});
 
