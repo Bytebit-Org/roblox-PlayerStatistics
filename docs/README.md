@@ -33,7 +33,7 @@
 
 Ƭ **EventsDefinition**<T\>: *object*
 
-Defines a list of events, keyed by their string name
+Defines a list of events, keyed by their string name, and which statistics should be updated when the event is recorded
 
 #### Type parameters:
 
@@ -43,7 +43,7 @@ Name | Type |
 
 #### Type declaration:
 
-Defined in: [src/types/EventsDefinition.d.ts:6](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/types/EventsDefinition.d.ts#L6)
+Defined in: [src/types/EventsDefinition.d.ts:6](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/types/EventsDefinition.d.ts#L6)
 
 ___
 
@@ -55,7 +55,7 @@ Defines a list of statistics, keyed by their string name
 
 #### Type declaration:
 
-Defined in: [src/types/StatisticsDefinition.d.ts:4](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/types/StatisticsDefinition.d.ts#L4)
+Defined in: [src/types/StatisticsDefinition.d.ts:6](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/types/StatisticsDefinition.d.ts#L6)
 
 ___
 
@@ -71,7 +71,7 @@ Name | Type |
 :------ | :------ |
 `T` | [*StatisticsDefinition*](README.md#statisticsdefinition) |
 
-Defined in: [src/types/StatisticsSnapshot.d.ts:6](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/types/StatisticsSnapshot.d.ts#L6)
+Defined in: [src/types/StatisticsSnapshot.d.ts:6](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/types/StatisticsSnapshot.d.ts#L6)
 
 ## Variables
 
@@ -88,4 +88,4 @@ Name | Type |
 `increment` | (`\_`: *number*, `currentValue`: *number*) => *number* |
 `sum` | (`a`: *number*, `b`: *number*) => *number* |
 
-Defined in: [src/StandardStatisticUpdateFunctions.ts:4](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/StandardStatisticUpdateFunctions.ts#L4)
+Defined in: [src/StandardStatisticUpdateFunctions.ts:4](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/StandardStatisticUpdateFunctions.ts#L4)

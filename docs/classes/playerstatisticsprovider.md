@@ -42,7 +42,7 @@ Fired when statistics are loaded for a player
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md).[statisticsLoadedForPlayer](../interfaces/iplayerstatisticsprovider.md#statisticsloadedforplayer)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:36](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L36)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:39](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L39)
 
 ## Methods
 
@@ -54,15 +54,15 @@ Returns whether statistics have been loaded for the given player
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`player` | *Player* |
+Name | Type | Description |
+:------ | :------ | :------ |
+`player` | *Player* | The given player    |
 
 **Returns:** *boolean*
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:103](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L103)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:109](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L109)
 
 ___
 
@@ -76,13 +76,15 @@ Clean up everything
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:111](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L111)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:120](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L120)
 
 ___
 
 ### getStatisticValueForPlayer
 
 ▸ **getStatisticValueForPlayer**(`player`: *Player*, `statisticName`: keyof StatsDef): [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>[keyof StatsDef]
+
+**`inheritdoc`** 
 
 #### Parameters:
 
@@ -93,7 +95,7 @@ Name | Type |
 
 **Returns:** [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>[keyof StatsDef]
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:134](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L134)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:149](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L149)
 
 ___
 
@@ -105,21 +107,23 @@ Gets the current statistics snapshot for the given player
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`player` | *Player* |
+Name | Type | Description |
+:------ | :------ | :------ |
+`player` | *Player* | The given player    |
 
 **Returns:** [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:121](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L121)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:133](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L133)
 
 ___
 
 ### recordEvent
 
 ▸ **recordEvent**(`player`: *Player*, `eventName`: keyof EventsDef, `value`: *number*): *void*
+
+**`inheritdoc`** 
 
 #### Parameters:
 
@@ -131,13 +135,15 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:147](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L147)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:165](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L165)
 
 ___
 
 ### subscribeToStatisticUpdates
 
 ▸ **subscribeToStatisticUpdates**(`statisticName`: keyof StatsDef, `handler`: (`player`: *Player*, `newValue`: *number*, `oldValue`: *number*) => *void*): ISignalConnection
+
+**`inheritdoc`** 
 
 #### Parameters:
 
@@ -148,7 +154,7 @@ Name | Type |
 
 **Returns:** ISignalConnection
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:195](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L195)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:216](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L216)
 
 ___
 
@@ -160,15 +166,15 @@ Waits (yields current coroutine) until statistics have been loaded for the given
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`player` | *Player* |
+Name | Type | Description |
+:------ | :------ | :------ |
+`player` | *Player* | The given player    |
 
 **Returns:** *void*
 
 Implementation of: [IPlayerStatisticsProvider](../interfaces/iplayerstatisticsprovider.md)
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:212](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L212)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:236](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L236)
 
 ___
 
@@ -195,4 +201,4 @@ Name | Type | Description |
 
 **Returns:** [*IPlayerStatisticsProvider*](../interfaces/iplayerstatisticsprovider.md)<StatsDef, EventsDef\>
 
-Defined in: [src/classes/PlayerStatisticsProvider.ts:86](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PlayerStatisticsProvider.ts#L86)
+Defined in: [src/classes/PlayerStatisticsProvider.ts:89](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PlayerStatisticsProvider.ts#L89)

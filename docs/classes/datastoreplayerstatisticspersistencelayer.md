@@ -33,15 +33,15 @@ Loads a statistics snapshot for the given player. Should return undefined if def
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`player` | *Player* |
+Name | Type | Description |
+:------ | :------ | :------ |
+`player` | *Player* | The player to load the statistics snapshot for.    |
 
 **Returns:** *Promise*<undefined \| object\>
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:32](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L32)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:35](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L35)
 
 ___
 
@@ -53,16 +53,16 @@ Saves a statistics snapshot for the given player.
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`player` | *Player* |
-`statisticsSnapshot` | [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\> |
+Name | Type | Description |
+:------ | :------ | :------ |
+`player` | *Player* | The player to save the statistics snapshot for.   |
+`statisticsSnapshot` | [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\> | The statistics snapshot to save.    |
 
 **Returns:** *Promise*<void\>
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:49](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L49)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:55](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L55)
 
 ___
 
@@ -86,4 +86,4 @@ Name | Type | Description |
 
 **Returns:** [*IPlayerStatisticsPersistenceLayer*](../interfaces/iplayerstatisticspersistencelayer.md)<StatsDef\>
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)

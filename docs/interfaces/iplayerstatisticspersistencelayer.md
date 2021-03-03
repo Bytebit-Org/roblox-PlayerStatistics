@@ -38,7 +38,7 @@ Name | Type | Description |
 
 **Returns:** *Promise*<undefined \| Partial<[*StatisticsSnapshot*](../README.md#statisticssnapshot)<T\>\>\>
 
-Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:13](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L13)
+Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:13](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L13)
 
 ___
 
@@ -57,4 +57,4 @@ Name | Type | Description |
 
 **Returns:** *Promise*<void\>
 
-Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/ffb989d/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L20)
+Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/196aade/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L20)
