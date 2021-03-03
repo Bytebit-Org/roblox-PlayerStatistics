@@ -58,7 +58,11 @@ And now we can define a single event which will be associated with all three of 
 import { PlayerStatisticsDefinition } from "./PlayerStatisticsDefinition";
 
 export const PlayerStatisticEventsDefinition = {
-    gameCompleted: identity<ReadonlyArray<typeof PlayerStatisticsDefinition>>(["highScore", "numberOfGamesPlayed", "scoreSum"])
+    gameCompleted: identity<ReadonlyArray<typeof PlayerStatisticsDefinition>>([
+        "highScore",
+        "numberOfGamesPlayed",
+        "scoreSum"
+    ]),
 };
 ```
 
@@ -70,8 +74,13 @@ import { DataStorePlayerStatisticsPersistenceLayer, PlayerStatisticsProvider } f
 import { PlayerStatisticsDefinition } from "./data/PlayerStatisticsDefinition";
 import { PlayerStatisticEventsDefinition } from "./data/PlayerStatisticEventsDefinition";
 
-const playerStatisticsPersistenceLayer = DataStorePlayerStatisticsPersistenceLayer.create(DataStoreService.GetDataStore("PlayerStatistics"));
-const playerStatisticsProvider = PlayerStatisticsProvider.create(PlayerStatisticEventsDefinition, playerStatisticsPersistenceLayer, PlayerStatisticsDefinition);
+const playerStatisticsDataStore = DataStoreService.GetDataStore("PlayerStatistics");
+const playerStatisticsPersistenceLayer = DataStorePlayerStatisticsPersistenceLayer.create(playerStatisticsDataStore);
+const playerStatisticsProvider = PlayerStatisticsProvider.create(
+    PlayerStatisticEventsDefinition,
+    playerStatisticsPersistenceLayer,
+    PlayerStatisticsDefinition
+);
 ```
 
 Finally, after a game is completed, we call this one simple line of code:
