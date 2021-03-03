@@ -35,27 +35,27 @@ export class PlayerStatisticsProvider<
 > implements IPlayerStatisticsProvider<StatsDef, EventsDef> {
 	public readonly statisticsLoadedForPlayer: ISignal<(player: Player) => void>;
 
-	// Note: all protected members should be considered private and are protected for unit testing
-
-	protected readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
-	protected readonly dumpster: Dumpster;
-	protected isDestroyed: boolean;
-	protected readonly statisticUpdatedSignalsByStatisticName: Map<
+	private readonly currentStatisticsSnapshotsByPlayer: Map<Player, StatisticsSnapshot<StatsDef>>;
+	private readonly dumpster: Dumpster;
+	private isDestroyed: boolean;
+	private readonly statisticUpdatedSignalsByStatisticName: Map<
 		keyof StatsDef,
 		ISignal<(player: Player, newValue: number, oldValue: number) => void>
 	>;
 
 	/**
+	 * @hidden
 	 * Use the create method instead
+	 * Protected only for unit testing
 	 */
 	protected constructor(
-		protected readonly dataModel: DataModel,
+		private readonly dataModel: DataModel,
 		dumpsterFactory: DumpsterFactory,
-		protected readonly eventsDefinition: EventsDef,
-		protected readonly playersService: Players,
-		protected readonly playerStatisticsPersistenceLayer: IPlayerStatisticsPersistenceLayer<StatsDef>,
-		protected readonly signalFactory: SignalFactory,
-		protected readonly statisticsDefinition: StatsDef,
+		private readonly eventsDefinition: EventsDef,
+		private readonly playersService: Players,
+		private readonly playerStatisticsPersistenceLayer: IPlayerStatisticsPersistenceLayer<StatsDef>,
+		private readonly signalFactory: SignalFactory,
+		private readonly statisticsDefinition: StatsDef,
 	) {
 		this.statisticsLoadedForPlayer = signalFactory.createInstance();
 
