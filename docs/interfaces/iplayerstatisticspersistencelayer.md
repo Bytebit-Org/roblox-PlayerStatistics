@@ -1,4 +1,4 @@
-[@rbxts/player-statistics](../README.md) / [Exports](../modules.md) / IPlayerStatisticsPersistenceLayer
+[@rbxts/player-statistics](../README.md) / IPlayerStatisticsPersistenceLayer
 
 # Interface: IPlayerStatisticsPersistenceLayer<T\>
 
@@ -9,7 +9,7 @@ Meant to allow for consumers to implement their own persistence layer to tie in 
 
 Name | Type |
 :------ | :------ |
-`T` | [*StatisticsDefinition*](../modules.md#statisticsdefinition) |
+`T` | [*StatisticsDefinition*](../README.md#statisticsdefinition) |
 
 ## Implemented by
 
@@ -26,7 +26,7 @@ Name | Type |
 
 ### loadStatisticsSnapshotForPlayerAsync
 
-▸ **loadStatisticsSnapshotForPlayerAsync**(`player`: *Player*): *Promise*<undefined \| Partial<[*StatisticsSnapshot*](../modules.md#statisticssnapshot)<T\>\>\>
+▸ **loadStatisticsSnapshotForPlayerAsync**(`player`: *Player*): *Promise*<undefined \| Partial<[*StatisticsSnapshot*](../README.md#statisticssnapshot)<T\>\>\>
 
 Loads a statistics snapshot for the given player. Should return undefined if default is desired.
 
@@ -36,15 +36,15 @@ Name | Type | Description |
 :------ | :------ | :------ |
 `player` | *Player* | The player to load the statistics snapshot for.    |
 
-**Returns:** *Promise*<undefined \| Partial<[*StatisticsSnapshot*](../modules.md#statisticssnapshot)<T\>\>\>
+**Returns:** *Promise*<undefined \| Partial<[*StatisticsSnapshot*](../README.md#statisticssnapshot)<T\>\>\>
 
-Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:13](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/bf8f327/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L13)
+Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:13](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L13)
 
 ___
 
 ### saveStatisticsSnapshotForPlayerAsync
 
-▸ **saveStatisticsSnapshotForPlayerAsync**(`player`: *Player*, `statisticsSnapshot`: [*StatisticsSnapshot*](../modules.md#statisticssnapshot)<T\>): *Promise*<void\>
+▸ **saveStatisticsSnapshotForPlayerAsync**(`player`: *Player*, `statisticsSnapshot`: [*StatisticsSnapshot*](../README.md#statisticssnapshot)<T\>): *Promise*<void\>
 
 Saves a statistics snapshot for the given player.
 
@@ -53,8 +53,8 @@ Saves a statistics snapshot for the given player.
 Name | Type | Description |
 :------ | :------ | :------ |
 `player` | *Player* | The player to save the statistics snapshot for.   |
-`statisticsSnapshot` | [*StatisticsSnapshot*](../modules.md#statisticssnapshot)<T\> | The statistics snapshot to save.    |
+`statisticsSnapshot` | [*StatisticsSnapshot*](../README.md#statisticssnapshot)<T\> | The statistics snapshot to save.    |
 
 **Returns:** *Promise*<void\>
 
-Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/bf8f327/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L20)
+Defined in: [src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts:20](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/interfaces/IPlayerStatisticsPersistenceLayer.d.ts#L20)

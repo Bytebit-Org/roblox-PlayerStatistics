@@ -1,4 +1,4 @@
-[@rbxts/player-statistics](../README.md) / [Exports](../modules.md) / DataStorePlayerStatisticsPersistenceLayer
+[@rbxts/player-statistics](../README.md) / DataStorePlayerStatisticsPersistenceLayer
 
 # Class: DataStorePlayerStatisticsPersistenceLayer<StatsDef\>
 
@@ -9,7 +9,7 @@ and overwrites the previous snapshot on each save.
 
 Name | Type |
 :------ | :------ |
-`StatsDef` | [*StatisticsDefinition*](../modules.md#statisticsdefinition) |
+`StatsDef` | [*StatisticsDefinition*](../README.md#statisticsdefinition) |
 
 ## Implements
 
@@ -41,13 +41,13 @@ Name | Type |
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:32](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/bf8f327/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L32)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:32](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L32)
 
 ___
 
 ### saveStatisticsSnapshotForPlayerAsync
 
-▸ **saveStatisticsSnapshotForPlayerAsync**(`player`: *Player*, `statisticsSnapshot`: [*StatisticsSnapshot*](../modules.md#statisticssnapshot)<StatsDef\>): *Promise*<void\>
+▸ **saveStatisticsSnapshotForPlayerAsync**(`player`: *Player*, `statisticsSnapshot`: [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\>): *Promise*<void\>
 
 Saves a statistics snapshot for the given player.
 
@@ -56,13 +56,13 @@ Saves a statistics snapshot for the given player.
 Name | Type |
 :------ | :------ |
 `player` | *Player* |
-`statisticsSnapshot` | [*StatisticsSnapshot*](../modules.md#statisticssnapshot)<StatsDef\> |
+`statisticsSnapshot` | [*StatisticsSnapshot*](../README.md#statisticssnapshot)<StatsDef\> |
 
 **Returns:** *Promise*<void\>
 
 Implementation of: [IPlayerStatisticsPersistenceLayer](../interfaces/iplayerstatisticspersistencelayer.md)
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:49](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/bf8f327/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L49)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:49](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L49)
 
 ___
 
@@ -76,7 +76,7 @@ Creates a new instance
 
 Name | Type |
 :------ | :------ |
-`StatsDef` | [*StatisticsDefinition*](../modules.md#statisticsdefinition) |
+`StatsDef` | [*StatisticsDefinition*](../README.md#statisticsdefinition) |
 
 #### Parameters:
 
@@ -86,4 +86,4 @@ Name | Type | Description |
 
 **Returns:** [*IPlayerStatisticsPersistenceLayer*](../interfaces/iplayerstatisticspersistencelayer.md)<StatsDef\>
 
-Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/bf8f327/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)
+Defined in: [src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts:25](https://github.com/Bytebit-Org/roblox-PlayerStatistics/blob/810ee13/src/classes/PersistenceLayers/DataStorePlayerStatisticsPersistenceLayer.ts#L25)
