@@ -44,9 +44,9 @@ export class PlayerStatisticsProvider<
 	>;
 
 	/**
+	 * @hidden
 	 * Use the create method instead
 	 * Protected only for unit testing
-	 * @internal
 	 */
 	protected constructor(
 		private readonly dataModel: DataModel,
