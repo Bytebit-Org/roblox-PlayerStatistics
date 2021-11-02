@@ -1,0 +1,9 @@
+[package]
+name = "bytebit/player-statistics"
+description = "A generic, type-safe package for Roblox development made with roblox-ts for giving out rewards to players who achieve specified objectives based on their player statistics."
+version = "1.0.3"
+license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
