@@ -25,6 +25,20 @@ Simply install to your [roblox-ts](https://roblox-ts.com/) project as follows:
 npm i @rbxts/player-statistics
 ```
 
+### Wally
+[Wally](https://github.com/UpliftGames/wally/) users can install this package by adding the following line to their `Wally.toml` under `[dependencies]`:
+```
+PlayerStatistics = "bytebit/player-statistics@1.0.3"
+```
+
+Then just run `wally install`.
+
+### From model file
+Model files are uploaded to every release as `.rbxmx` files. You can download the file from the [Releases page](https://github.com/Bytebit-Org/roblox-PlayerStatistics/releases) and load it into your project however you see fit.
+
+### From model asset
+New versions of the asset are uploaded with every release. The asset can be added to your Roblox Inventory and then inserted into your Place via Toolbox by getting it [here.](https://www.roblox.com/library/7881304458/Player-Statistics-Package)
+
 ## Documentation
 Documentation can be found [here](https://github.com/Bytebit-Org/roblox-PlayerStatistics/tree/master/docs), is included in the TypeScript files directly, and was generated using [TypeDoc](https://typedoc.org/).
 
