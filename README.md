@@ -28,7 +28,7 @@ npm i @rbxts/player-statistics
 ### Wally
 [Wally](https://github.com/UpliftGames/wally/) users can install this package by adding the following line to their `Wally.toml` under `[dependencies]`:
 ```
-PlayerStatistics = "bytebit/player-statistics@1.0.3"
+PlayerStatistics = "bytebit/player-statistics@1.0.4"
 ```
 
 Then just run `wally install`.
